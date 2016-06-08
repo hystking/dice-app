@@ -20,5 +20,8 @@ block append meta
   meta(name="twitter:description", content=meta.description)
   meta(name="twitter:image:src", content=meta.ogImage)
 
+block prepend script-body
+  script(src="/socket.io/socket.io.js")
+
 block content
-  p index.html
+  #root
