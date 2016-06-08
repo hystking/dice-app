@@ -5,7 +5,7 @@ import {render} from "react-dom"
 export default function admin() {
   const socket = io()
   const root = document.getElementById("root")
-  let id = null
+  const id = -1
 
   function setNumber(id, number) {
     socket.emit("set number", {id, number})

@@ -3,6 +3,7 @@ import Root from "./views/root"
 import React from "react"
 import {render} from "react-dom"
 
+
 export default function index() {
   const socket = io()
   const root = document.getElementById("root")
@@ -10,6 +11,11 @@ export default function index() {
 
   function setNumber(id, number) {
     socket.emit("set number", {id, number})
+  }
+
+  function connectUser() {
+    socket.emit("connect user")
+    id = -1
   }
 
   socket.on("id", _id => {
@@ -22,8 +28,8 @@ export default function index() {
 
   socket.on("state", state => {
     const {users} = state
-    render(<Root {...{id, users, setNumber}}/>, root)
+    render(<Root {...{id, users, setNumber, connectUser}}/>, root)
   }) 
 
-  socket.emit("connect user")
+  socket.emit("request state")
 }
