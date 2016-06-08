@@ -1,27 +1,12 @@
-import _ from "lodash"
-import Root from "./views/root"
-import React from "react"
-import {render} from "react-dom"
-import getRandomNumber from "./effects/get-random-number"
+import index from "./index"
+import admin from "./admin"
 
-const socket = io()
-const root = document.getElementById("root")
-let id = null
-
-function setNumber(id, number) {
-  socket.emit("set number", {id, number})
+switch(window.location.pathname) {
+  case "/":
+  case "/index.html":
+    index()
+    break
+  case "/admin.html":
+    admin()
+    break
 }
-
-socket.on("id", _id => {
-  id = _id
-  socket.emit("set number", {
-    id,
-    number: _.random(1, 6),
-  })
-})
-
-socket.on("state", state => {
-  const {users} = state
-  render(<Root {...{id, users, setNumber}}/>, root)
-}) 
-

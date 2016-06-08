@@ -12,13 +12,10 @@ export default function Root({id, users, setNumber}) {
             <CTG transitionName="slide" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
               <div className="user__number" key={user.number}>{user.number}</div>
             </CTG>
-            {
-              user.id !== id
-                ? <a className="user__set-number-button" href="javascript: void 0;" onClick={
-                  e => setNumber(user.id, getRandomNumber(user.number))
-                }></a>
-                : <div className="user__me">Me</div>
-            }
+            <a className="user__set-number-button" href="javascript: void 0;" onClick={
+              e => setNumber(user.id, getRandomNumber(user.number))
+            }></a>
+            {user.id === id ? <div className="user__me">Me</div> : null}
           </div>
         )
       })

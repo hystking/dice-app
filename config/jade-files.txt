@@ -1,1 +1,2 @@
 src/jade/index.jade
+src/jade/admin.jade
