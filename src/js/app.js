@@ -1,3 +1,4 @@
+import "react-fastclick"
 import index from "./index"
 import admin from "./admin"
 
