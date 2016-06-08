@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "npm run serve & npm run watch",
+    "dev": "npm run serve & npm run watch",
     "serve": "live-server $(cat config/root.txt)",
     "watch": "npm run stylus; npm run watchify & npm run jade -- -w & npm run stylus -- -w & npm run postcss -- --watch; wait",
     "watchify": "watchify src/js/app.js -o \"uglifyjs > $(cat config/root.txt)js/app.js\" -v",
