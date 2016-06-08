@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "dev": "npm run serve & npm run watch",
+    "serve": "live-server $(cat lib/root.txt)",
+    "watch": "npm run stylus; npm run watchify & npm run jade -- -w & npm run stylus -- -w & npm run postcss -- --watch; wait",
+    "watchify": "watchify src/js/app.js -o \"uglifyjs > $(cat lib/root.txt)js/app.js\" -v",
+    "jade": "jade $(cat lib/jade-files.txt) -O jade.json -o $(cat lib/root.txt)",
+    "stylus": "stylus $(cat lib/stylus-files.txt) -o temp/css --include $(cat lib/root.txt)css",
+    "postcss": "postcss --config postcss.json --dir $(cat lib/root.txt)css $(cat lib/postcss-files.txt)",
+    "postinstall": "npm shrinkwrap --dev"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "babel-preset-es2015": "latest",
+    "babelify": "latest",
+    "browserify": "latest",
+    "css-mqpacker": "latest",
+    "cssnano": "latest",
+    "jade": "latest",
+    "live-server": "hystking/live-server",
+    "postcss": "latest",
+    "postcss-cli": "latest",
+    "stylus": "latest",
+    "uglify-js": "latest",
+    "watchify": "latest"
+  },
+  "browserify": {
+    "transform": ["babelify"]
+  }
+}
