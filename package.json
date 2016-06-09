@@ -27,6 +27,7 @@
     "react-addons-css-transition-group": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-fastclick": "^2.1.2",
+    "socket.io-client": "^1.4.6",
     "stylus": "latest",
     "uglify-js": "latest",
     "watchify": "latest"

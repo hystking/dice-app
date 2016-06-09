@@ -1,9 +1,10 @@
 import Root from "./views/root"
 import React from "react"
 import {render} from "react-dom"
+import io from "socket.io-client"
 
 export default function admin() {
-  const socket = io()
+  const socket = io("/")
   const root = document.getElementById("root")
   const id = -1
 
