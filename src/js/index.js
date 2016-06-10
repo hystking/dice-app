@@ -3,6 +3,7 @@ import Root from "./views/root"
 import React from "react"
 import {render} from "react-dom"
 import io from "socket.io-client"
+import getRandomNumber from "./effects/get-random-number"
 
 export default function index() {
   const socket = io("/")
@@ -22,7 +23,7 @@ export default function index() {
     id = _id
     socket.emit("set number", {
       id,
-      number: _.random(1, 6),
+      number: getRandomNumber(),
     })
   })
 

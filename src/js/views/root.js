@@ -14,7 +14,7 @@ export default function Root({id, users, setNumber, connectUser}) {
                 <div className="user__number" key={user.number}>{user.number}</div>
               </CTG>
               <a className="user__set-number-button" href="javascript: void 0;" onClick={
-                e => setNumber(user.id, getRandomNumber(user.number))
+                e => setNumber(user.id, getRandomNumber())
               }></a>
               {user.id === id ? <div className="user__me">Me</div> : null}
             </div>

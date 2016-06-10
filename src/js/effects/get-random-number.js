@@ -1,5 +1,5 @@
 import _ from "lodash"
 
-export default function getRandomNumber(prevNumber) {
-  return 1 + (prevNumber + _.random(0, 4) | 0) % 6
+export default function getRandomNumber() {
+  return _.random(1, 3) + _.random(1, 3)
 }
